@@ -2,7 +2,13 @@ import React, { useState, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Child from './Child';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+  HashRouter,
+} from 'react-router-dom';
 import About from './About';
 import Home from './Home';
 import Race from './Race';
