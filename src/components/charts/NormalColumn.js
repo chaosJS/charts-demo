@@ -36,13 +36,22 @@ const NormalColumn = () => {
         autoRotate: true,
       },
     },
-    minColumnWidth:20,maxColumnWidth:90, 
+    yAxis: {
+      // 格式化左坐标轴
+      label: {
+        formatter: (val) => {
+          console.log('ssss');
+          return `${val}%`;
+        },
+      },
+    },
+    minColumnWidth: 20,
+    maxColumnWidth: 90,
     tooltip: {
       formatter: (datum) => {
-        console.log(datum, 'datum---');
         return {
-          name: '销售额' ,
-          value: datum.sales + '%' 
+          name: '销售额',
+          value: datum.sales + '%',
         };
       },
       domStyles: {
@@ -62,10 +71,10 @@ const NormalColumn = () => {
     },
   };
   return (
-    <div style={{margin:'30px 0'}}>
+    <div style={{ margin: '30px 0' }}>
       <Column {...config} />
     </div>
-  )
-}
+  );
+};
 
-export default NormalColumn
+export default NormalColumn;

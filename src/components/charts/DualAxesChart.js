@@ -9,23 +9,32 @@ const DualAxesChart = () => {
     { time: '苏州绿地宝仕', value: 362, type: 'uv' },
 
     { time: '台州绿地宝仕', value: 350, type: 'bill' },
-    { time: '泰州绿地宝仕', value: 700, type: 'bill' },
+    { time: '泰州绿地宝仕', value: 600, type: 'bill' },
     { time: '淮安绿地宝仕', value: 300, type: 'bill' },
     { time: '扬州绿地宝仕', value: 450, type: 'bill' },
     { time: '苏州绿地宝仕', value: 470, type: 'bill' },
   ];
   
   const transformData = [
-    { time: '台州绿地宝仕', count: 400 },
-    { time: '泰州绿地宝仕', count: 500 },
-    { time: '淮安绿地宝仕', count: 400 },
-    { time: '扬州绿地宝仕', count: 380 },
-    { time: '苏州绿地宝仕', count: 220 },
+    { time: '台州绿地宝仕', count: 30 },
+    { time: '泰州绿地宝仕', count: 35 },
+    { time: '淮安绿地宝仕', count: 18 },
+    { time: '扬州绿地宝仕', count: 29 },
+    { time: '苏州绿地宝仕', count: 22 },
   ];
   const config =  {
     data: [uvBillData, transformData],
     xField: 'time',
     yField: ['value','count'], 
+    yAxis: {
+      count: {
+        min: 0,
+        max:40,
+        label: {
+          formatter: (val) => `${val}%`,
+        },
+      },
+    },
     tooltip: {
       formatter: (datum) => {
         return { name: datum.type==='uv'?'客户量':'可触达率', value:datum.type? datum.value:datum.count + '%' };

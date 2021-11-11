@@ -32,27 +32,27 @@ const Chart: React.FC = () => {
   var transformData = [
     {
       time: '台州绿地宝仕',
-      count: 44.6,
+      count: 30.5,
       name: 'a',
     },
     {
       time: '泰州绿地宝仕',
-      count: 45,
+      count: 40,
       name: 'a',
     },
     {
       time: '淮安绿地宝仕',
-      count: 44.6,
+      count: 31.6,
       name: 'a',
     },
     {
       time: '扬州绿地宝仕',
-      count: 45,
+      count: 40.5,
       name: 'a',
     },
     {
       time: '苏州绿地宝仕',
-      count: 44,
+      count: 40,
       name: 'a',
     },
   ];
@@ -60,9 +60,16 @@ const Chart: React.FC = () => {
     data: [uvData, transformData],
     xField: 'time',
     yField: ['value', 'count'],
+    yAxis: {
+      count: {
+        min: 0,
+        label: {
+          formatter: (val: any) => `${val}%`,
+        },
+      },
+    },
     tooltip: {
       formatter: (datum: any) => {
-        console.log(datum, 'datum---');
         return {
           name: datum.name === 'a' ? '活跃客户率' : '活跃客户量',
           value: datum.count ? datum.count + '%' : datum.value,
