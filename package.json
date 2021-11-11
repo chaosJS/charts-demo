@@ -1,7 +1,7 @@
 {
   "name": "jira",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "./",
   "dependencies": {
     "@ant-design/charts": "^1.2.14",
     "@antv/g2plot": "^2.3.39",
